@@ -1,0 +1,92 @@
+<div class="bg-white rounded-lg border p-4">
+  <!-- Toolbar -->
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+    <div class="flex items-center gap-3">
+      <label class="text-sm text-gray-600">Page size</label>
+      <select class="border rounded px-2 py-1" [value]="pageSize" (change)="onPageSizeChange($event)">
+        <option [value]="50">50</option>
+        <option [value]="100">100</option>
+        <option [value]="200">200</option>
+        <option [value]="500">500</option>
+        <option [value]="1000">1000</option>
+        <option [value]="2000">2000</option>
+      </select>
+
+      <button class="text-sm px-3 py-1 border rounded hover:bg-gray-50" (click)="exportCurrentPage()">Export page</button>
+      <button class="text-sm px-3 py-1 border rounded hover:bg-gray-50" (click)="exportAll()">Export all</button>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <select class="border rounded px-2 py-1" [value]="sortKey" (change)="onSortSelectChange($event)">
+        <option value="timestamp">Timestamp</option>
+        <option value="initiatorCountry">Initiator</option>
+        <option value="targetCountry">Target</option>
+        <option value="sector">Sector</option>
+        <option value="attackType">Attack Type</option>
+        <option value="severity">Severity</option>
+        <option value="affectedRecords">Affected Records</option>
+      </select>
+      <button class="px-2 py-1 border rounded" (click)="toggleSortDir()">
+        {{ sortDir === 'asc' ? 'Asc' : 'Desc' }}
+      </button>
+
+      <div class="hidden md:flex items-center gap-2">
+        <button class="px-2 py-1 border rounded" (click)="jumpToStart()">« First</button>
+        <button class="px-2 py-1 border rounded" (click)="prevPage()">‹ Prev</button>
+        <div class="px-2">Page <strong>{{ pageIndex + 1 }}</strong> / {{ totalPages }}</div>
+        <button class="px-2 py-1 border rounded" (click)="nextPage()">Next ›</button>
+        <button class="px-2 py-1 border rounded" (click)="jumpToEnd()">Last »</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table container -->
+  <div class="relative border rounded overflow-hidden">
+    <div *ngIf="loading" class="absolute inset-0 flex items-center justify-center bg-white/50 z-10">
+      <div class="animate-pulse text-gray-500">Loading…</div>
+    </div>
+
+    <div #tbl class="max-h-[65vh] overflow-auto">
+      <table class="min-w-full text-sm">
+        <thead class="bg-gray-50 text-gray-600 sticky top-0">
+        <tr>
+          <th class="text-left font-medium px-3 py-2 w-[170px]">Timestamp</th>
+          <th class="text-left font-medium px-3 py-2">Initiator</th>
+          <th class="text-left font-medium px-3 py-2">Target</th>
+          <th class="text-left font-medium px-3 py-2">Sector</th>
+          <th class="text-left font-medium px-3 py-2">Attack Type</th>
+          <th class="text-left font-medium px-3 py-2">Severity</th>
+          <th class="text-right font-medium px-3 py-2 w-[150px]">Affected Records</th>
+        </tr>
+        </thead>
+        <tbody class="divide-y">
+        <tr *ngFor="let r of viewRows; trackBy: trackRow" class="odd:bg-white even:bg-gray-50">
+          <td class="px-3 py-2">{{ r.timestamp }}</td>
+          <td class="px-3 py-2">{{ r.initiatorCountry }}</td>
+          <td class="px-3 py-2">{{ r.targetCountry }}</td>
+          <td class="px-3 py-2">{{ sectorOf(r) }}</td>
+          <td class="px-3 py-2">{{ attackTypeOf(r) }}</td>
+          <td class="px-3 py-2">{{ severityOf(r) }}</td>
+          <td class="px-3 py-2 text-right">{{ affectedRecordsOf(r) | number }}</td>
+        </tr>
+
+        <tr *ngIf="!loading && viewRows.length === 0">
+          <td colspan="7" class="px-3 py-8 text-center text-gray-500">No records for current filters</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer counter -->
+  <div class="mt-3 text-sm text-gray-600">
+    Showing {{ displayStart | number }}–{{ displayEnd | number }} of {{ total | number }}
+  </div>
+
+  <!-- Mobile pager -->
+  <div class="mt-2 md:hidden flex items-center gap-2 justify-center">
+    <button class="px-2 py-1 border rounded" (click)="prevPage()">‹ Prev</button>
+    <div>Page <strong>{{ pageIndex + 1 }}</strong> / {{ totalPages }}</div>
+    <button class="px-2 py-1 border rounded" (click)="nextPage()">Next ›</button>
+  </div>
+</div>

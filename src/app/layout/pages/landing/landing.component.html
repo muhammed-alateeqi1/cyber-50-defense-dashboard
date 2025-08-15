@@ -1,0 +1,46 @@
+<div class="w-full min-h-screen bg-gradient-to-br from-black via-slate-950 to-blue-950 relative overflow-hidden">
+  <!-- Static Particles Container -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+  <div class="absolute inset-0 animate-pulse z-0 static-stars">
+    <div class="star absolute top-20 left-20 w-1 h-1 bg-white rounded-full opacity-80"></div>
+    <div class="star absolute top-48 left-1/3 w-1 h-1 bg-white rounded-full opacity-90"></div>
+    <div class="star absolute top-32 right-40 w-1 h-1 bg-white rounded-full opacity-60"></div>
+    <div class="star absolute top-64 right-20 w-1 h-1 bg-white rounded-full opacity-75"></div>
+    <div class="star absolute top-48 left-1/3 w-1 h-1 bg-white rounded-full opacity-90"></div>
+    <div class="star absolute bottom-40 left-16 w-1 h-1 bg-white rounded-full opacity-70"></div>
+    <div class="star absolute bottom-32 right-32 w-1 h-1 bg-white rounded-full opacity-85"></div>
+    <div class="star absolute bottom-60 left-1/2 w-1 h-1 bg-white rounded-full opacity-80"></div>
+  </div>
+  <!-- Main Content -->
+  <div
+    class="container mx-auto flex flex-col justify-center items-center min-h-screen  px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Heading -->
+    <h1 class="text-center font-bold heading-text text-white mb-8 sm:mb-12 lg:mb-16 leading-tight animate-pulse">
+      Your Guardian In The <br>
+      <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        Digital Realm
+      </span>
+    </h1>
+
+    <p class="information text-center text-white mb-8 sm:mb-12 lg:mb-16 leading-tight animate-pulse">
+      {{displayText}}
+    </p>
+    <!-- Logo Section -->
+    <div class="relative">
+      <!-- Central Logo -->
+      <div class="logo-parent mx-auto flex relative mt-10 justify-center items-center bounce">
+        <img class="hero-logo mb-5 object-contain animate-pulse" src="./../../../../assets/cyber-cytrix-3D.png"
+          alt="Cyber Logo">
+      </div>
+    </div>
+    <!-- Button with Progress Effect -->
+    <button (click)="navigateToDashboard()"
+      class=" sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform duration-300"
+      aria-label="Next">
+      <svg class="arrow w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25">
+        <path stroke-linecap="round" d="M5 12h11" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7l6 5-6 5" />
+      </svg>
+    </button>
+  </div>
+</div>

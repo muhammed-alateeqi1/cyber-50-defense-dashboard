@@ -1,0 +1,69 @@
+<!-- dashboard.component.html -->
+
+<!-- Header -->
+<header class="bg-white shadow-sm border-b">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-blue-950 rounded-lg flex items-center justify-center">
+          <img class="object-contain" src="./../../../assets/Cyber-Logo2.png" alt="">
+        </div>
+        <h1 class="text-xl font-semibold text-gray-900">Cyber50 Dashboard</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button class="p-2 text-gray-400  transition-colors " disabled>
+          <!-- <app-dark-mode-toggle></app-dark-mode-toggle> -->
+        </button>
+
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Dashboard Container -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+  <!-- Tab Navigation -->
+  <div class="bg-white rounded-lg shadow-sm mb-6">
+    <nav class="flex border-b border-gray-200 overflow-x-auto" aria-label="Tabs">
+      <a routerLink="attacks" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-exclamation-triangle mr-2"></i>Attacks
+      </a>
+      <a routerLink="attributions" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-fingerprint mr-2"></i>Attributions
+      </a>
+      <a routerLink="countries" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-globe mr-2"></i>Countries
+      </a>
+      <a routerLink="initiator-countries" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-flag mr-2"></i>Initiator Countries
+      </a>
+      <a routerLink="initiator-types" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-users-cog mr-2"></i>Initiator Types
+      </a>
+      <a routerLink="responses" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-reply mr-2"></i>Responses
+      </a>
+      <a routerLink="sectors" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-industry mr-2"></i>Sectors
+      </a>
+      <a routerLink="all-records" routerLinkActive="border-blue-500 text-blue-600 bg-blue-50"
+        class="whitespace-nowrap py-3 px-6 border-b-2 border-transparent text-gray-600 text-sm transition-colors hover:text-blue-600 hover:border-blue-300">
+        <i class="fas fa-database mr-2"></i>All Records
+      </a>
+
+    </nav>
+  </div>
+
+  <app-key-insights></app-key-insights>
+
+  <app-filters></app-filters>
+
+  <router-outlet></router-outlet>
+</div>

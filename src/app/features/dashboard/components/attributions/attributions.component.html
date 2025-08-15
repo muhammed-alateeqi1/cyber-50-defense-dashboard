@@ -1,0 +1,11 @@
+<div class="bg-white p-6 rounded-lg border shadow-sm">
+  <h3 class="text-lg font-semibold mb-4">Attributions — Top Entities</h3>
+  <ng-container *ngIf="data.length; else nodata">
+    <div class="w-full h-[420px]">
+      <app-bar-chart [data]="data" [height]="420"></app-bar-chart>
+    </div>
+  </ng-container>
+  <ng-template #nodata>
+    <div class="text-sm text-gray-500">No data after filters.</div>
+  </ng-template>
+</div>

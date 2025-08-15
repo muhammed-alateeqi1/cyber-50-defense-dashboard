@@ -1,0 +1,282 @@
+.star {
+    animation: twinkle 2s infinite;
+    box-shadow: 0 0 6px currentColor;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.move {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce{
+    animation: bounce 3s ease-in-out infinite;
+}
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(1, 1, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0, 0);
+  }
+}
+
+.heading-text {
+    font-size: 70px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.information {
+    width: 65%;
+    font-weight: 400;
+    letter-spacing: .3px;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+
+.logo-parent {
+    width: 40%;
+    height: 300px;
+}
+
+.hero-logo {
+    width: 100%;
+}
+
+
+.move-live-icon {
+    top: 30px;
+    left: 85px;
+    z-index: 2;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #000000;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(14, 41, 89, 1) 100%);
+    transition: ease .6s;
+    background: rgba(255, 255, 255, 0.2);
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+button:hover {
+    background: #120303;
+    background: radial-gradient(circle, rgba(18, 3, 3, 1) 0%, rgba(119, 158, 224, 1) 100%);
+}
+
+button:hover .arrow {
+    transform: rotate(0deg);
+}
+
+.arrow {
+    transform: rotate(90deg);
+    transition: ease .3s;
+}
+
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+#particles-js canvas+.static-stars {
+    display: none;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg-gradient-to-r {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@media (max-width: 1536px) {
+    .heading-text {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .heading-text {
+        font-size: 50px;
+    }
+
+    .logo-parent {
+        width: 50%;
+        height: 280px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .heading-text {
+        font-size: 45px;
+    }
+
+    .information {
+        width: 75%;
+        line-height: 28px;
+    }
+
+    .logo-parent {
+        width: 55%;
+        height: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .heading-text {
+        font-size: 35px;
+    }
+
+    .information {
+        width: 85%;
+        line-height: 26px;
+        margin-bottom: 32px;
+    }
+
+    .logo-parent {
+        width: 65%;
+        height: 240px;
+    }
+
+    .move-live-icon {
+        top: 25px;
+        left: 65px;
+    }
+}
+
+@media (max-width: 640px) {
+    .heading-text {
+        font-size: 40px;
+    }
+
+    .information {
+        width: 100%;
+        line-height: 24px;
+        margin-bottom: 24px;
+        font-size: 12px;
+    }
+
+    .logo-parent {
+        width: 75%;
+        height: 220px;
+    }
+
+    .move-live-icon {
+        top: 20px;
+        left: 50px;
+    }
+      button{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading-text {
+        font-size: 24px;
+    }
+
+    .information {
+        width: 95%;
+        line-height: 22px;
+        margin-bottom: 20px;
+    }
+
+    .logo-parent {
+        width: 85%;
+        height: 200px;
+    }
+
+    .move-live-icon {
+        top: 15px;
+        left: 40px;
+    }
+  
+}
+
+@media (max-width: 375px) {
+    .heading-text {
+        font-size: 22px;
+    }
+
+    .information {
+        width: 100%;
+        line-height: 20px;
+        margin-bottom: 16px;
+    }
+
+    .logo-parent {
+        width: 90%;
+        height: 180px;
+    }
+
+    .move-live-icon {
+        top: 12px;
+        left: 35px;
+    }
+}
+
+@media (max-width: 320px) {
+    .heading-text {
+        font-size: 20px;
+    }
+
+    .logo-parent {
+        width: 95%;
+        height: 160px;
+    }
+
+    .move-live-icon {
+        top: 10px;
+        left: 30px;
+    }
+}
