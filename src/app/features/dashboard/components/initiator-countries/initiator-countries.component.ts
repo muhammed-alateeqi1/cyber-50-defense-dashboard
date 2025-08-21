@@ -116,8 +116,11 @@ export class InitiatorCountriesComponent implements OnInit, OnDestroy {
       .attr('height', height);
 
     
-    const projection = d3.geoNaturalEarth1()
-      .fitExtent([[18, 18], [width - 18, height - 18]], { type: 'Sphere' } as any);
+ const projection = d3.geoStereographic()
+  .scale(90) 
+  .translate([width / 2, height / 2]) 
+  .rotate([0, 0]) 
+  .center([0, 0]); 
     const geoPath = d3.geoPath(projection as any);
 
 
@@ -254,7 +257,7 @@ export class InitiatorCountriesComponent implements OnInit, OnDestroy {
     const g = this.svg.append('g');
 
     const maxCount = d3.max(flows, d => d.count) || 1;
-    const strokeW = d3.scaleLinear().domain([1, maxCount]).range([1, 4]);
+    const strokeW = d3.scaleLinear().domain([1, maxCount]).range([1, 2]);
 
     const linePath = (a: Pt, b: Pt) => {
       
