@@ -124,7 +124,7 @@ export class InitiatorCountriesComponent implements OnInit, OnDestroy {
     this.svg.append('rect')
       .attr('x', 0).attr('y', 0)
       .attr('width', width).attr('height', height)
-      .attr('fill', '#0f172a'); 
+      .attr('fill', '#8A8A8A'); 
 
     this.svg.append('path')
       .attr('d', geoPath({ type: 'Sphere' } as any)!)
